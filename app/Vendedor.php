@@ -11,8 +11,9 @@ class Vendedor extends Model
     protected $fillable = ['id', 'nome', 'cpf'];
     protected $dates = ['deleted_at'];
     protected $table = 'vendedores';
+    protected $primaryKey = 'id';
 
-    function produtos()
+    public function produtos()
     {
         return $this->hasMany('App\Produto');
     }

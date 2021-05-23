@@ -11,4 +11,10 @@ class Produto extends Model
     protected $fillable = ['id', 'nome', 'vendedor_id', 'preco'];
     protected $dates = ['deleted_at'];
     protected $table = 'produtos';
+    protected $primaryKey = 'id';
+
+    public function vendedor()
+    {
+        return $this->belongsTo('App\Vendedor', 'vendedor_id');
+    }
 }

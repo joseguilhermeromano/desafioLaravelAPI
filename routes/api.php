@@ -18,5 +18,5 @@ Route::get('/', function (Request $request) {
     return response()->json(['message' => 'Seja bem vindo a PENSOTEC API!', 'status' => 'Conectado com sucesso.']);
 });
 
-Route::resource('Vendedores', 'VendedoresController');
-Route::resource('Produtos', 'ProdutosController');
+Route::resource('vendedores', 'VendedoresController');
+Route::resource('produtos', 'ProdutosController');
