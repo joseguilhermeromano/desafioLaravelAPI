@@ -14,5 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vendedores');
 });
+
+Route::get('/vendedores', function () {
+    return view('vendedores');
+});
+
+Route::get('/produtos', function () {
+    return view('produtos');
+});
+
+Route::get('/produtos/cadastrar', function () {
+    return view('formularios.inserirProduto');
+});
+
+Route::get('/vendedores/cadastrar', function () {
+    return view('formularios.inserirVendedor');
+});
+
