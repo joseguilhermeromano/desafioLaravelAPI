@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/', function (Request $request) {
+    return response()->json(['message' => 'Seja bem vindo a PENSOTEC API!', 'status' => 'Conectado com sucesso.']);
 });
+
+Route::resource('Vendedores', 'VendedoresController');
+Route::resource('Produtos', 'ProdutosController');
