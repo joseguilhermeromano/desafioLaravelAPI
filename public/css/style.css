@@ -243,3 +243,7 @@ html, body {
     font-size: 2vmin;
     font-weight: bold;
 }
+
+input.masked-currency{
+    text-align: right;
+}

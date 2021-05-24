@@ -25,8 +25,8 @@
         <link rel="stylesheet" href="{{ asset('bootstrap/3.3.7/css/bootstrap-theme.min.css') }}" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
         <!-- Latest compiled and minified JavaScript -->
+        <script src="{{ asset('js/jquery-2.2.4.js') }}"></script>
         <script src="{{ asset('bootstrap/3.3.7/js/bootstrap.min.js') }}" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -35,10 +35,10 @@
                     <div class="container-fluid">
                         <section>
                             <div class="topnav" id="myTopnav">
-                                <a data-toggle="tab" href="{{ URL::to('/') }}"> <img src="<?= asset('images/logo_penso.png') ?>" width="75%" height="50%" alt="logo"> </a>
-                                <div class="direita">
-                                    <a data-toggle="tab" href="{{ URL::to('/') }}">Vendedores</a>
-                                    <a data-toggle="tab"href="{{ URL::to('/') }}/produtos">Produtos</a>
+                                <a href="{{ URL::to('/') }}"> <img src="<?= asset('images/logo_penso.png') ?>" width="75%" height="50%" alt="logo"> </a>
+                                <div class="direita" style="padding-top:20px">
+                                    <a href="{{ URL::to('/') }}">Vendedores</a>
+                                    <a href="{{ URL::to('/') }}/produtos">Produtos</a>
                                 </div>
                                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                                     <i class="fa fa-bars"></i>

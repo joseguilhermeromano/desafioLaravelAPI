@@ -14,14 +14,6 @@
                 <div class="col-sm-2">
                     <a href="{{ URL::to('/') }}/produtos/cadastrar" class="btn btn-default"><b><span class="fa fa-plus"></span> Cadastrar</b></a>
                 </div>
-                <div class="col-sm-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Procurar por...">
-                        <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><b><span class="fa fa-search"></span>&nbsp;&nbsp;Buscar</b></button>
-                        </span>
-                    </div><!-- /input-group -->
-                </div>
             </div>
             <br><br>
             <table class="table">
@@ -35,18 +27,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>teste</td>
-                    <td width="200">
-                        <div class="row">
-                            <a href="#" class="btn btn-success"><b><span class="fa fa-edit"></span> Alterar</b></a>
-                            <a href="#" class="btn btn-danger"><b><span class="fa fa-edit"></span> Excluir</b></a>
-                        </div>
-                    </td>
-                  </tr>
+
+                  @foreach ($produtos as $produto)
+                    <tr>
+                        <th scope="row">{{$produto->id}}</th>
+                        <td>{{$produto->nome}}</td>
+                        <td>{{$produto->vendedor->nome}}</td>
+                        <td>{{$produto->preco}}</td>
+                        <td width="200">
+                            <div class="row">
+                                <a href="{{ URL::to('/') }}/produtos/alterar/{{$produto->id}}" class="btn btn-success"><b><span class="fa fa-edit"></span> Alterar</b></a>
+                                <a href="{{ URL::to('/') }}/produtos/excluir/{{$produto->id}}" class="btn btn-danger"><b><span class="fa fa-edit"></span> Excluir</b></a>
+                            </div>
+                        </td>
+                    </tr>
+                  @endforeach
+                  
                 </tbody>
               </table>
         </div>

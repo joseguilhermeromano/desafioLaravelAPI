@@ -17,19 +17,20 @@ Route::get('/', function () {
     return view('vendedores');
 });
 
+Route::get('/produtos', 'ProdutosController@list');
+Route::match(array('GET', 'POST'), '/produtos/cadastrar', 'ProdutosController@insert');
+Route::match(array('GET', 'POST'), '/produtos/alterar/{id}', 'ProdutosController@edit');
+Route::get('/produtos/excluir/{id}', 'ProdutosController@delete');
+
+
 Route::get('/vendedores', function () {
     return view('vendedores');
-});
-
-Route::get('/produtos', function () {
-    return view('produtos');
-});
-
-Route::get('/produtos/cadastrar', function () {
-    return view('formularios.inserirProduto');
 });
 
 Route::get('/vendedores/cadastrar', function () {
     return view('formularios.inserirVendedor');
 });
+
+Route::get('/vendedores/alterar/{id}', 'VendedoresController@edit');
+Route::get('/vendedores/excluir/{id}', 'VendedoresController@delete');
 
