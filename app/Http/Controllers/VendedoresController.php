@@ -64,4 +64,41 @@ class VendedoresController extends Controller
 
         $vendedor->delete();
     }
+
+    public function list(){
+        $vendedores = Vendedor::all();
+        return view('vendedores', ['vendedores' => $vendedores]);
+    }
+
+    public function insert(Request $request){
+
+        if (empty($request->all())) {
+            return view('formularios.inserirVendedor');
+        }
+
+        $vendedor = new Vendedor();
+        $vendedor->fill($request->all());
+        $vendedor->save();
+
+        return redirect()->action('VendedoresController@list');
+    }
+
+    public function edit(Request $request, $id){
+
+        $vendedor = Vendedor::find($id);
+
+        if (empty($request->all())) {
+            return view('formularios.alterarVendedor', ['vendedor' => $vendedor]);
+        }
+
+        $vendedor->fill($request->all());
+        $vendedor->save();
+
+        return redirect()->action('VendedoresController@list');
+    }
+
+    public function delete($id){
+        $this->destroy($id);
+        return redirect()->action('VendedoresController@list');
+    }
 }

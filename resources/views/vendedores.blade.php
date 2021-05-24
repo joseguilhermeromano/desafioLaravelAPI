@@ -14,14 +14,6 @@
               <div class="col-sm-2">
                   <a href="{{ URL::to('/') }}/vendedores/cadastrar" class="btn btn-default"><b><span class="fa fa-plus"></span> Cadastrar</b></a>
               </div>
-              <div class="col-sm-4">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Procurar por...">
-                    <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><b><span class="fa fa-search"></span>&nbsp;&nbsp;Buscar</b></button>
-                    </span>
-                  </div><!-- /input-group -->
-              </div>
             </div>
             <br><br>
             <table class="table">
@@ -34,17 +26,21 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td width="200">
-                        <div class="row">
-                            <a href="#" class="btn btn-success"><b><span class="fa fa-edit"></span> Alterar</b></a>
-                            <a href="#" class="btn btn-danger"><b><span class="fa fa-edit"></span> Excluir</b></a>
-                        </div>
-                    </td>
-                  </tr>
+
+                  @foreach ($vendedores as $vendedor)
+                    <tr>
+                      <th scope="row">{{$vendedor->id}}</th>
+                      <td>{{$vendedor->nome}}</td>
+                      <td>{{$vendedor->cpf}}</td>
+                      <td width="200">
+                          <div class="row">
+                              <a href="{{ URL::to('/') }}/vendedores/alterar/{{$vendedor->id}}" class="btn btn-success"><b><span class="fa fa-edit"></span> Alterar</b></a>
+                              <a href="{{ URL::to('/') }}/vendedores/excluir/{{$vendedor->id}}" class="btn btn-danger"><b><span class="fa fa-edit"></span> Excluir</b></a>
+                          </div>
+                      </td>
+                    </tr>
+                  @endforeach
+                  
                 </tbody>
               </table>
         </div>

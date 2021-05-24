@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('vendedores');
-});
+Route::get('/', 'VendedoresController@list');
 
 Route::get('/produtos', 'ProdutosController@list');
 Route::match(array('GET', 'POST'), '/produtos/cadastrar', 'ProdutosController@insert');
@@ -23,14 +21,8 @@ Route::match(array('GET', 'POST'), '/produtos/alterar/{id}', 'ProdutosController
 Route::get('/produtos/excluir/{id}', 'ProdutosController@delete');
 
 
-Route::get('/vendedores', function () {
-    return view('vendedores');
-});
-
-Route::get('/vendedores/cadastrar', function () {
-    return view('formularios.inserirVendedor');
-});
-
-Route::get('/vendedores/alterar/{id}', 'VendedoresController@edit');
+Route::get('/vendedores', 'VendedoresController@list');
+Route::match(array('GET', 'POST'), '/vendedores/cadastrar', 'VendedoresController@insert');
+Route::match(array('GET', 'POST'), '/vendedores/alterar/{id}', 'VendedoresController@edit');
 Route::get('/vendedores/excluir/{id}', 'VendedoresController@delete');
 
